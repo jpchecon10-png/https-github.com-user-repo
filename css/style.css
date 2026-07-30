@@ -131,9 +131,7 @@ p{ margin:0; }
 .header.scrolled .header-inner{ padding-top:10px; padding-bottom:10px; }
 
 .logo{ display:flex; align-items:center; gap:8px; }
-.logo-icon{ font-size:1.8rem; }
-.logo-text{ font-family:var(--font-display); font-weight:800; font-size:1.3rem; color:var(--dark); letter-spacing:.02em; }
-.logo-text em{ font-style:normal; color:var(--red); }
+.logo-mark{ width:112px; height:auto; display:block; flex-shrink:0; }
 
 .nav{ display:flex; gap:34px; }
 .nav-link{ font-weight:500; font-size:.98rem; position:relative; padding:4px 0; }
@@ -489,7 +487,6 @@ p{ margin:0; }
 .footer{ background:var(--dark); color:#e8dccb; padding-top:70px; }
 .footer-inner{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:40px; padding-bottom:50px; }
 .footer-brand p{ margin:16px 0 20px; font-size:.9rem; opacity:.75; max-width:280px; }
-.footer .logo-text{ color:var(--white); }
 .footer-col h4{ color:var(--white); font-size:1rem; margin-bottom:18px; }
 .footer-col{ display:flex; flex-direction:column; gap:10px; }
 .footer-col a{ font-size:.9rem; opacity:.75; transition:var(--transition); }
