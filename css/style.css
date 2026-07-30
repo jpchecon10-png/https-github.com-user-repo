@@ -7,8 +7,8 @@
   --red-dark: #a11d1d;
   --orange: #f77f00;
   --gold: #ffb703;
-  --cream: #fff8ee;
-  --cream-2: #fff1dc;
+  --cream: #f0e2c9;
+  --cream-2: #e8d3ab;
   --dark: #2b1c14;
   --dark-2: #4a2f1f;
   --brown: #6b3f2a;
@@ -121,7 +121,7 @@ p{ margin:0; }
    ============================================================ */
 .header{
   position:fixed; top:0; left:0; right:0; z-index:500;
-  background:rgba(255,248,238,.85);
+  background:rgba(240,226,201,.88);
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(43,28,20,.06);
   transition:box-shadow var(--transition), padding var(--transition);
@@ -203,7 +203,7 @@ p{ margin:0; }
 .hero-visual{ position:relative; display:flex; align-items:center; justify-content:center; }
 .hero-plate{
   width:min(440px,90%); aspect-ratio:1/1; border-radius:50%;
-  background:radial-gradient(circle, var(--white) 62%, #f4e4c8 63%, #f4e4c8 100%);
+  background:radial-gradient(circle, var(--white) 62%, #e6d0a8 63%, #e6d0a8 100%);
   box-shadow:var(--shadow-lg), inset 0 0 0 14px rgba(255,255,255,.6);
   display:flex; align-items:center; justify-content:center;
   animation:plateFloat 6s ease-in-out infinite;
