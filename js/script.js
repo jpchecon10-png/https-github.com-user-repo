@@ -137,7 +137,7 @@ const MENU = [
   { id: 'p8', cat: 'salgada', name: 'Bacon com Cheddar', desc: 'Bacon crocante, molho cheddar cremoso e muçarela derretida na medida.', price: 57.9, tags: ['Defumada'], badge: 'new', flavor: 'bacon-cheddar', cheese: '#ffd873' },
 
   // ---- DOCES ----
-  { id: 'd1', cat: 'doce', name: 'Chocolate com Morango', desc: 'Camada generosa de chocolate ao leite, morangos fresquinhos e raspas de chocolate branco.', price: 46.9, tags: ['Doce'], badge: 'hot', flavor: 'chocolate-morango', cheese: '#7a4a2c' },
+  { id: 'd1', cat: 'doce', name: 'Chocolate com Morango', desc: 'Camada generosa de chocolate ao leite, morangos fresquinhos e raspas de chocolate branco.', price: 46.9, tags: ['Doce'], badge: 'hot', flavor: 'chocolate-morango', cheese: '#7a4a2c', photo: 'https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89' },
   { id: 'd2', cat: 'doce', name: 'Banana com Canela', desc: 'Banana caramelizada, leite condensado e um toque generoso de canela.', price: 42.9, tags: ['Doce'], flavor: 'banana-canela', cheese: '#fdf3d8' },
   { id: 'd3', cat: 'doce', name: 'Prestígio', desc: 'Chocolate cremoso coberto com muito coco ralado, igualzinho ao docinho.', price: 44.9, tags: ['Doce'], badge: 'new', flavor: 'prestigio', cheese: '#6b4226' },
   { id: 'd4', cat: 'doce', name: 'Romeu e Julieta', desc: 'Muçarela derretida com generosos cubos de goiabada — o clássico casal brasileiro.', price: 43.9, tags: ['Doce'], flavor: 'romeu-julieta', cheese: '#fff6e0' },
