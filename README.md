@@ -1,27 +1,30 @@
-# 🍕 Mega Pizza
+# ✨ Dr. Dieison Dahmer | Odontologia Estética
 
-Site (landing page) completo para uma pizzaria fictícia chamada **Mega Pizza**: hero de destaque, diferenciais, banner de promoção, cardápio gigante (pizzas salgadas, doces e bebidas) com carrinho de compras, depoimentos de clientes e seção de contato — tudo com pedido finalizado direto pelo WhatsApp.
+Site institucional de alto padrão para a clínica **Dr. Dieison Dahmer | Odontologia Estética**, em Foz do Iguaçu - PR. Design minimalista e sofisticado (marfim, dourado e verde escuro), com hero de impacto, seção sobre o profissional, tratamentos, diferenciais, casos clínicos, avaliações de pacientes e contato com agendamento direto pelo WhatsApp.
 
 É um site 100% estático (HTML + CSS + JS puro, sem frameworks nem build), então basta abrir `index.html` no navegador ou publicar em qualquer hospedagem estática (GitHub Pages, Netlify, Vercel etc).
 
 ## Estrutura
 
 ```
-index.html      → estrutura da página
-css/style.css   → todo o visual (cores, layout, responsividade, animações)
-js/script.js    → dados do cardápio, carrinho, abas, depoimentos, interações
+index.html      → estrutura da página (hero, sobre, tratamentos, diferenciais, transformações, avaliações, contato)
+css/style.css   → identidade visual, layout, responsividade e animações
+js/script.js    → header dinâmico, menu mobile, animações de rolagem, botão voltar ao topo
 ```
 
 ## Como personalizar
 
-1. **Número do WhatsApp** — em `js/script.js`, troque a constante no topo do arquivo:
-   ```js
-   const WHATSAPP_NUMBER = '5500000000000'; // formato: 55 + DDD + número, só dígitos
-   ```
-2. **Endereço, telefone, horário** — edite a seção `#contato` em `index.html`.
-3. **Cardápio** — todo o cardápio (pizzas e bebidas) vem do array `MENU` em `js/script.js`. Adicione, remova ou edite itens (nome, descrição, preço, sabor/arte, tags e selo).
-4. **Fotos reais** — as pizzas e bebidas usam ilustrações 100% em CSS (nenhuma imagem externa, então nada quebra e carrega instantâneo). Se você tiver fotos reais dos produtos, é só trocar o conteúdo de `.card-top` por uma tag `<img>` apontando para o arquivo da foto — a função `artFor(item)` em `js/script.js` é o único lugar que precisa mudar.
-5. **Cores** — todas as cores principais estão centralizadas em `:root` no topo de `css/style.css` (`--red`, `--orange`, `--gold`, `--cream` etc).
+1. **Número do WhatsApp** — o número `(45) 99148-1461` aparece em `index.html` nos links `https://wa.me/5545991481461` (botão hero, seção de contato e botão flutuante). Substitua pelo número real no formato `55 + DDD + número`, só dígitos.
+2. **Endereço e mapa** — edite a seção `#contato` em `index.html`; o mapa incorporado usa o endereço via Google Maps embed (`src` do `<iframe>`).
+3. **Instagram** — links `@drdieisondahmer` estão na seção Sobre, Contato e Rodapé.
+4. **Fotos reais** — os espaços de foto do profissional (`.sobre-photo`) e dos casos de antes/depois (`.case-compare`) usam blocos ilustrativos em CSS. Basta substituir por tags `<img>` reais quando as fotos estiverem disponíveis.
+5. **Cores** — toda a paleta (marfim, bege, dourado, verde escuro) está centralizada em `:root` no topo de `css/style.css`.
+
+## SEO
+
+- **Title:** Dr. Dieison Dahmer | Odontologia Estética em Foz do Iguaçu
+- **Description:** Clínica de odontologia estética em Foz do Iguaçu especializada em lentes de contato dental, facetas, implantes e tratamentos personalizados.
+- Dados estruturados (`schema.org/Dentist`) incluídos no `<head>` para melhorar a indexação local.
 
 ## Rodando localmente
 
