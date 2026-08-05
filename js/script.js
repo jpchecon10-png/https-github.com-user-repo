@@ -111,6 +111,10 @@ function pizzaArt(flavor, cheese) {
   return `<div class="pizza-art" data-flavor="${flavor}" style="--pz-cheese:${cheese}">${fn(cheese)}</div>`;
 }
 
+function photoArt(url, alt) {
+  return `<div class="pizza-art photo-art"><img src="${url}" alt="${alt}" loading="lazy"></div>`;
+}
+
 function drinkArt(type, color, cap, isBottle, isWater) {
   const cls = `drink-art ${isBottle ? 'bottle' : ''} ${isWater ? 'water' : ''}`;
   return `<div class="${cls}" style="--dk-color:${color};--cap-color:${cap || '#eee'}">
@@ -123,11 +127,11 @@ function drinkArt(type, color, cap, isBottle, isWater) {
 /* ---------- MENU DATA ---------- */
 const MENU = [
   // ---- SALGADAS ----
-  { id: 'p1', cat: 'salgada', name: 'Pepperoni Supreme', desc: 'Molho de tomate especial, muçarela generosa e fatias fartas de pepperoni.', price: 54.9, tags: ['Picante leve','Clássica'], badge: 'hot', flavor: 'pepperoni', cheese: '#ffcf5c' },
-  { id: 'p2', cat: 'salgada', name: 'Catupiry Clássica', desc: 'Muçarela derretida coberta com muito catupiry original, cremoso do jeito que você ama.', price: 52.9, tags: ['Cremosa'], badge: 'hot', flavor: 'catupiry', cheese: '#ffd873' },
-  { id: 'p3', cat: 'salgada', name: 'Frango com Catupiry', desc: 'Frango desfiado temperado, catupiry cremoso e milho, a queridinha do Brasil inteiro.', price: 56.9, tags: ['Mais pedida'], badge: 'hot', flavor: 'frango-catupiry', cheese: '#ffd06a' },
-  { id: 'p4', cat: 'salgada', name: 'Calabresa Especial', desc: 'Calabresa fatiada, cebola roxa e azeitonas — sabor que não erra nunca.', price: 49.9, tags: ['Tradicional'], flavor: 'calabresa', cheese: '#ffcf5c' },
-  { id: 'p5', cat: 'salgada', name: 'Quatro Queijos', desc: 'Muçarela, provolone, parmesão e catupiry em uma combinação irresistível.', price: 58.9, tags: ['Para quem ama queijo'], flavor: 'quatro-queijos', cheese: '#fff0c2' },
+  { id: 'p1', cat: 'salgada', name: 'Pepperoni Supreme', desc: 'Molho de tomate especial, muçarela generosa e fatias fartas de pepperoni.', price: 54.9, tags: ['Picante leve','Clássica'], badge: 'hot', flavor: 'pepperoni', cheese: '#ffcf5c', photo: 'https://cdn.gamma.app/xhg1oyks4jxkg9k/design-anything/5nFf8XSqA08EiTzEMfbfF/2ccAYWToglMeiPmJZnJn-.png' },
+  { id: 'p2', cat: 'salgada', name: 'Catupiry Clássica', desc: 'Muçarela derretida coberta com muito catupiry original, cremoso do jeito que você ama.', price: 52.9, tags: ['Cremosa'], badge: 'hot', flavor: 'catupiry', cheese: '#ffd873', photo: 'https://cdn.gamma.app/xhg1oyks4jxkg9k/design-anything/QNeOzCPPFRGLkEiblQTwS/mv7_ZkLoCxIiivDw9tPD6.png' },
+  { id: 'p3', cat: 'salgada', name: 'Frango com Catupiry', desc: 'Frango desfiado temperado, catupiry cremoso e milho, a queridinha do Brasil inteiro.', price: 56.9, tags: ['Mais pedida'], badge: 'hot', flavor: 'frango-catupiry', cheese: '#ffd06a', photo: 'https://cdn.gamma.app/xhg1oyks4jxkg9k/design-anything/BtF6qLt75myjs4bAJlseQ/j7CExc41C8heg4FR4EnmY.png' },
+  { id: 'p4', cat: 'salgada', name: 'Calabresa Especial', desc: 'Calabresa fatiada, cebola roxa e azeitonas — sabor que não erra nunca.', price: 49.9, tags: ['Tradicional'], flavor: 'calabresa', cheese: '#ffcf5c', photo: 'https://cdn.gamma.app/xhg1oyks4jxkg9k/design-anything/R4vL7yMzBiFMGK5ovfzsT/g_1KJ1CSN2VqhRO302lX4.png' },
+  { id: 'p5', cat: 'salgada', name: 'Quatro Queijos', desc: 'Muçarela, provolone, parmesão e catupiry em uma combinação irresistível.', price: 58.9, tags: ['Para quem ama queijo'], flavor: 'quatro-queijos', cheese: '#fff0c2', photo: 'https://cdn.gamma.app/xhg1oyks4jxkg9k/design-anything/IeqDC5LHCIzIrUccBlagG/0_GtLSZQTuJK_lQpgrk56.png' },
   { id: 'p6', cat: 'salgada', name: 'Margherita Fresca', desc: 'Muçarela de búfala, tomate fresco, manjericão e um fio de azeite extra virgem.', price: 51.9, tags: ['Vegetariana'], badge: 'new', flavor: 'margherita', cheese: '#fff6e0' },
   { id: 'p7', cat: 'salgada', name: 'Portuguesa Gigante', desc: 'Presunto, ovo, cebola, azeitona, ervilha e muçarela — completa do jeito certo.', price: 55.9, tags: ['Completa'], flavor: 'portuguesa', cheese: '#ffcf5c' },
   { id: 'p8', cat: 'salgada', name: 'Bacon com Cheddar', desc: 'Bacon crocante, molho cheddar cremoso e muçarela derretida na medida.', price: 57.9, tags: ['Defumada'], badge: 'new', flavor: 'bacon-cheddar', cheese: '#ffd873' },
@@ -155,6 +159,7 @@ function fmtPrice(v) {
 }
 
 function artFor(item) {
+  if (item.photo) return photoArt(item.photo, item.name);
   return item.art ? item.art() : pizzaArt(item.flavor, item.cheese);
 }
 
@@ -467,12 +472,12 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 /* ---------- HERO & PROMO ART ---------- */
 const heroPlate = document.getElementById('heroPlate');
-if (heroPlate) heroPlate.innerHTML = pizzaArt('pepperoni', '#ffcf5c');
+if (heroPlate) heroPlate.innerHTML = photoArt(MENU.find(m => m.id === 'p1').photo, 'Pizza de Pepperoni');
 
 const promoVisual = document.getElementById('promoVisual');
 if (promoVisual) {
   promoVisual.innerHTML = `
-    <div class="pizza-art pizza-lg promo-pizza-1" style="--pz-cheese:#ffd06a">${RECIPES['frango-catupiry']()}</div>
+    <div class="pizza-art photo-art pizza-lg promo-pizza-1"><img src="${MENU.find(m => m.id === 'p3').photo}" alt="Pizza de Frango com Catupiry" loading="lazy"></div>
     <div class="pizza-art pizza-md promo-pizza-2" style="--pz-cheese:#7a4a2c">${RECIPES['chocolate-morango']()}</div>
     ${drinkArt('COCA‑COLA', '#c62828', '#c62828', true).replace('class="drink-art', 'class="drink-art drink-lg promo-drink')}
   `;
