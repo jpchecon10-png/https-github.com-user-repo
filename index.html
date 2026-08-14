@@ -177,6 +177,13 @@
     transition:transform .2s ease, box-shadow .2s ease;
     box-shadow:6px 6px 0 var(--line);
   }
+  .rx-photo{
+    width:100%; aspect-ratio:16/11; border-radius:12px; margin-bottom:16px;
+    background:linear-gradient(160deg, #FFF9EC, #FBE7BE);
+    border:2px solid var(--ink); overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .rx-photo svg{width:82%; height:82%;}
   .rx-card:hover{transform:translateY(-4px); box-shadow:8px 10px 0 var(--crust);}
   .rx-card::before{
     content:""; position:absolute; top:0; left:0; right:0; height:6px;
@@ -447,24 +454,72 @@
 
     <div class="menu-panel active" id="classicas">
       <div class="rx-card">
+        <div class="rx-photo">
+          <svg viewBox="0 0 200 140" aria-hidden="true">
+            <path d="M15 78 Q15 45 65 40 Q100 36 140 45 Q172 53 170 78 Q172 100 135 105 Q95 111 55 105 Q15 100 15 78 Z" fill="#E8A33D" stroke="#241B0F" stroke-width="3"/>
+            <path d="M50 50 Q60 46 72 49" stroke="#241B0F" stroke-width="2" opacity="0.3" fill="none" stroke-linecap="round"/>
+            <path d="M100 45 Q112 42 124 46" stroke="#241B0F" stroke-width="2" opacity="0.3" fill="none" stroke-linecap="round"/>
+            <path d="M25 66 Q42 55 62 58" stroke="#3B6E4A" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M128 58 Q150 62 160 74" stroke="#3B6E4A" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <rect x="35" y="72" width="120" height="11" rx="5.5" fill="#F2C572" stroke="#241B0F" stroke-width="2"/>
+            <circle cx="58" cy="77" r="5.5" fill="#D93829"/>
+            <circle cx="95" cy="80" r="5.5" fill="#D93829"/>
+            <circle cx="132" cy="76" r="5.5" fill="#D93829"/>
+          </svg>
+        </div>
         <div class="rx-top"><h4>Baguete Clássica do Doutor</h4><span class="rx-price">R$ 24,90</span></div>
         <p>Pão amanteigado, carne 150g, queijo prato, alface, tomate e molho da casa.</p>
         <div class="rx-sig">Dose padrão <span>Dr. Baguete</span></div>
         <button class="btn btn-primary btn-small rx-add" data-name="Baguete Clássica do Doutor" data-price="24.90">Adicionar ao pedido</button>
       </div>
       <div class="rx-card">
+        <div class="rx-photo">
+          <svg viewBox="0 0 200 140" aria-hidden="true">
+            <path d="M15 78 Q15 45 65 40 Q100 36 140 45 Q172 53 170 78 Q172 100 135 105 Q95 111 55 105 Q15 100 15 78 Z" fill="#E8A33D" stroke="#241B0F" stroke-width="3"/>
+            <rect x="32" y="70" width="126" height="13" rx="6.5" fill="#C8811F" stroke="#241B0F" stroke-width="2"/>
+            <path d="M40 74 Q50 70 60 74 Q70 78 80 74 Q90 70 100 74 Q110 78 120 74 Q130 70 140 74 Q150 78 158 74" stroke="#8B3A2A" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M45 60 Q80 52 115 62 Q140 68 155 60" stroke="#7A2318" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.85"/>
+            <circle cx="65" cy="55" r="3" fill="#F2C572"/>
+            <circle cx="100" cy="52" r="3" fill="#F2C572"/>
+            <circle cx="130" cy="56" r="3" fill="#F2C572"/>
+          </svg>
+        </div>
         <div class="rx-top"><h4>Baguete Bacon Turbo</h4><span class="rx-price">R$ 28,90</span></div>
         <p>Carne 150g, bacon crocante, cheddar derretido, cebola caramelizada e molho barbecue.</p>
         <div class="rx-sig">Dose reforçada <span>Dr. Baguete</span></div>
         <button class="btn btn-primary btn-small rx-add" data-name="Baguete Bacon Turbo" data-price="28.90">Adicionar ao pedido</button>
       </div>
       <div class="rx-card">
+        <div class="rx-photo">
+          <svg viewBox="0 0 200 140" aria-hidden="true">
+            <path d="M15 78 Q15 45 65 40 Q100 36 140 45 Q172 53 170 78 Q172 100 135 105 Q95 111 55 105 Q15 100 15 78 Z" fill="#E8A33D" stroke="#241B0F" stroke-width="3"/>
+            <rect x="34" y="71" width="122" height="13" rx="6.5" fill="#FFF3D6" stroke="#241B0F" stroke-width="2"/>
+            <circle cx="55" cy="77" r="4" fill="#E8A33D"/>
+            <circle cx="80" cy="80" r="4" fill="#E8A33D"/>
+            <circle cx="108" cy="76" r="4" fill="#E8A33D"/>
+            <circle cx="135" cy="79" r="4" fill="#E8A33D"/>
+            <path d="M42 60 L48 46 M56 63 L64 47 M72 60 L78 45 M90 62 L96 46 M108 61 L114 46 M126 62 L134 47 M144 60 L152 47" stroke="#C8811F" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div class="rx-top"><h4>Baguete Frango Cremoso</h4><span class="rx-price">R$ 23,90</span></div>
         <p>Frango desfiado, catupiry, milho e batata palha crocante.</p>
         <div class="rx-sig">Dose leve <span>Dr. Baguete</span></div>
         <button class="btn btn-primary btn-small rx-add" data-name="Baguete Frango Cremoso" data-price="23.90">Adicionar ao pedido</button>
       </div>
       <div class="rx-card">
+        <div class="rx-photo">
+          <svg viewBox="0 0 200 140" aria-hidden="true">
+            <path d="M15 78 Q15 45 65 40 Q100 36 140 45 Q172 53 170 78 Q172 100 135 105 Q95 111 55 105 Q15 100 15 78 Z" fill="#E8A33D" stroke="#241B0F" stroke-width="3"/>
+            <rect x="30" y="71" width="128" height="12" rx="6" fill="#F2C572" stroke="#241B0F" stroke-width="2"/>
+            <circle cx="95" cy="68" r="16" fill="#FFFDF8" stroke="#241B0F" stroke-width="2.5"/>
+            <circle cx="97" cy="66" r="6" fill="#E8A33D"/>
+            <circle cx="45" cy="79" r="3.5" fill="#3B6E4A"/>
+            <circle cx="58" cy="76" r="3.5" fill="#3B6E4A"/>
+            <circle cx="130" cy="78" r="3.5" fill="#E8A33D"/>
+            <circle cx="145" cy="75" r="3.5" fill="#E8A33D"/>
+            <circle cx="150" cy="82" r="3.5" fill="#3B6E4A"/>
+          </svg>
+        </div>
         <div class="rx-top"><h4>Baguete Caprichada</h4><span class="rx-price">R$ 26,90</span></div>
         <p>Carne 150g, presunto, queijo, ovo, milho, ervilha e batata palha.</p>
         <div class="rx-sig">Dose completa <span>Dr. Baguete</span></div>
@@ -474,12 +529,37 @@
 
     <div class="menu-panel" id="especiais">
       <div class="rx-card">
+        <div class="rx-photo">
+          <svg viewBox="0 0 200 140" aria-hidden="true">
+            <path d="M8 80 Q8 42 66 37 Q100 33 148 43 Q182 51 180 80 Q182 105 140 111 Q100 118 55 111 Q8 105 8 80 Z" fill="#E8A33D" stroke="#241B0F" stroke-width="3"/>
+            <rect x="26" y="66" width="140" height="10" rx="5" fill="#C8811F" stroke="#241B0F" stroke-width="2"/>
+            <rect x="26" y="80" width="140" height="10" rx="5" fill="#F2C572" stroke="#241B0F" stroke-width="2"/>
+            <circle cx="95" cy="58" r="14" fill="#FFFDF8" stroke="#241B0F" stroke-width="2.5"/>
+            <circle cx="97" cy="56" r="5.5" fill="#E8A33D"/>
+            <path d="M40 96 Q55 92 68 96" stroke="#8B3A2A" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M120 97 Q135 92 150 97" stroke="#8B3A2A" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <circle cx="163" cy="30" r="18" fill="none" stroke="#D93829" stroke-width="2.5" stroke-dasharray="3 3"/>
+            <text x="163" y="35" text-anchor="middle" font-family="'Space Mono',monospace" font-size="13" font-weight="700" fill="#D93829">X2</text>
+          </svg>
+        </div>
         <div class="rx-top"><h4>Baguete Dose Dupla</h4><span class="rx-price">R$ 34,90</span></div>
         <p>Duas carnes de 150g, queijo em dobro, bacon, ovo e molho especial da casa.</p>
         <div class="rx-sig">Alta potência <span>Dr. Baguete</span></div>
         <button class="btn btn-primary btn-small rx-add" data-name="Baguete Dose Dupla" data-price="34.90">Adicionar ao pedido</button>
       </div>
       <div class="rx-card">
+        <div class="rx-photo">
+          <svg viewBox="0 0 200 140" aria-hidden="true">
+            <path d="M15 78 Q15 45 65 40 Q100 36 140 45 Q172 53 170 78 Q172 100 135 105 Q95 111 55 105 Q15 100 15 78 Z" fill="#E8A33D" stroke="#241B0F" stroke-width="3"/>
+            <path d="M28 68 Q45 55 68 58 Q60 68 45 72 Q34 74 28 68 Z" fill="#3B6E4A" stroke="#241B0F" stroke-width="2"/>
+            <path d="M132 58 Q152 60 162 74 Q148 72 138 68 Q130 65 132 58 Z" fill="#3B6E4A" stroke="#241B0F" stroke-width="2"/>
+            <rect x="40" y="74" width="115" height="10" rx="5" fill="#F2C572" stroke="#241B0F" stroke-width="2"/>
+            <circle cx="65" cy="79" r="4" fill="#7A2318"/>
+            <circle cx="95" cy="81" r="4" fill="#7A2318"/>
+            <circle cx="128" cy="78" r="4" fill="#7A2318"/>
+            <path d="M50 90 Q90 96 148 90" stroke="#FFFDF8" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.9"/>
+          </svg>
+        </div>
         <div class="rx-top"><h4>Baguete Veggie Zen</h4><span class="rx-price">R$ 25,90</span></div>
         <p>Grão-de-bico empanado, rúcula, tomate seco e molho de iogurte.</p>
         <div class="rx-sig">Fórmula vegetariana <span>Dr. Baguete</span></div>
@@ -489,18 +569,51 @@
 
     <div class="menu-panel" id="bebidas">
       <div class="rx-card">
+        <div class="rx-photo">
+          <svg viewBox="0 0 200 140" aria-hidden="true">
+            <path d="M70 40 L130 40 L120 118 Q100 126 80 118 Z" fill="#F2C572" stroke="#241B0F" stroke-width="3"/>
+            <path d="M74 46 L126 46 L118 60 L82 60 Z" fill="#E8A33D"/>
+            <path d="M78 30 L92 55" stroke="#3B6E4A" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="140" cy="42" r="17" fill="#E8A33D" stroke="#241B0F" stroke-width="2.5"/>
+            <path d="M140 27 L140 57 M125 42 L155 42" stroke="#FFF6E8" stroke-width="2.5"/>
+            <path d="M82 66 Q100 72 118 66" stroke="#FFFDF8" stroke-width="2.5" fill="none" opacity="0.6"/>
+          </svg>
+        </div>
         <div class="rx-top"><h4>Suco Natural</h4><span class="rx-price">R$ 8,90</span></div>
         <p>Laranja ou limão, feito na hora, sem adição de açúcar.</p>
         <div class="rx-sig">Hidratação <span>Dr. Baguete</span></div>
         <button class="btn btn-primary btn-small rx-add" data-name="Suco Natural" data-price="8.90">Adicionar ao pedido</button>
       </div>
       <div class="rx-card">
+        <div class="rx-photo">
+          <svg viewBox="0 0 200 140" aria-hidden="true">
+            <rect x="75" y="30" width="50" height="95" rx="10" fill="#D93829" stroke="#241B0F" stroke-width="3"/>
+            <ellipse cx="100" cy="30" rx="25" ry="7" fill="#AD2A1E" stroke="#241B0F" stroke-width="2"/>
+            <rect x="90" y="22" width="20" height="7" rx="3" fill="#E4D5BC" stroke="#241B0F" stroke-width="1.5"/>
+            <path d="M85 55 Q100 50 115 55" stroke="#FFF6E8" stroke-width="3" fill="none" opacity="0.7"/>
+            <circle cx="88" cy="80" r="2.5" fill="#FFF6E8" opacity="0.8"/>
+            <circle cx="112" cy="95" r="2" fill="#FFF6E8" opacity="0.8"/>
+            <circle cx="95" cy="105" r="2.5" fill="#FFF6E8" opacity="0.8"/>
+            <circle cx="118" cy="70" r="2" fill="#FFF6E8" opacity="0.8"/>
+          </svg>
+        </div>
         <div class="rx-top"><h4>Refrigerante Lata</h4><span class="rx-price">R$ 6,90</span></div>
         <p>Gelado, do jeito que combina com a baguete.</p>
         <div class="rx-sig">Clássico <span>Dr. Baguete</span></div>
         <button class="btn btn-primary btn-small rx-add" data-name="Refrigerante Lata" data-price="6.90">Adicionar ao pedido</button>
       </div>
       <div class="rx-card">
+        <div class="rx-photo">
+          <svg viewBox="0 0 200 140" aria-hidden="true">
+            <path d="M85 20 L115 20 L115 35 Q130 45 130 65 L130 115 Q130 122 122 122 L78 122 Q70 122 70 115 L70 65 Q70 45 85 35 Z" fill="#EAF2EC" stroke="#241B0F" stroke-width="3"/>
+            <rect x="88" y="12" width="24" height="12" rx="3" fill="#3B6E4A" stroke="#241B0F" stroke-width="2.5"/>
+            <circle cx="88" cy="90" r="3" fill="#FFFDF8" stroke="#241B0F" stroke-width="1"/>
+            <circle cx="105" cy="105" r="2.5" fill="#FFFDF8" stroke="#241B0F" stroke-width="1"/>
+            <circle cx="95" cy="70" r="2" fill="#FFFDF8" stroke="#241B0F" stroke-width="1"/>
+            <circle cx="112" cy="80" r="2.5" fill="#FFFDF8" stroke="#241B0F" stroke-width="1"/>
+            <circle cx="82" cy="60" r="2" fill="#FFFDF8" stroke="#241B0F" stroke-width="1"/>
+          </svg>
+        </div>
         <div class="rx-top"><h4>Água com Gás</h4><span class="rx-price">R$ 5,00</span></div>
         <p>Pra equilibrar depois da dose dupla.</p>
         <div class="rx-sig">Leve <span>Dr. Baguete</span></div>
@@ -510,12 +623,32 @@
 
     <div class="menu-panel" id="sobremesas">
       <div class="rx-card">
+        <div class="rx-photo">
+          <svg viewBox="0 0 200 140" aria-hidden="true">
+            <ellipse cx="100" cy="115" rx="70" ry="14" fill="#FFFDF8" stroke="#241B0F" stroke-width="2.5"/>
+            <rect x="70" y="55" width="45" height="45" rx="6" fill="#4A2E1D" stroke="#241B0F" stroke-width="3"/>
+            <path d="M92 66 Q100 84 88 98" stroke="#8B5A34" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <circle cx="140" cy="92" r="19" fill="#FFFDF8" stroke="#241B0F" stroke-width="2.5"/>
+            <path d="M129 87 Q140 82 151 87" stroke="#E4D5BC" stroke-width="2" fill="none"/>
+            <path d="M126 96 Q140 100 154 96" stroke="#E4D5BC" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
         <div class="rx-top"><h4>Petit Gâteau</h4><span class="rx-price">R$ 14,90</span></div>
         <p>Massa de chocolate quente com recheio cremoso e sorvete de creme.</p>
         <div class="rx-sig">Sobremesa da casa <span>Dr. Baguete</span></div>
         <button class="btn btn-primary btn-small rx-add" data-name="Petit Gâteau" data-price="14.90">Adicionar ao pedido</button>
       </div>
       <div class="rx-card">
+        <div class="rx-photo">
+          <svg viewBox="0 0 200 140" aria-hidden="true">
+            <ellipse cx="100" cy="118" rx="72" ry="13" fill="#FFFDF8" stroke="#241B0F" stroke-width="2.5"/>
+            <rect x="52" y="68" width="62" height="40" rx="5" fill="#4A2E1D" stroke="#241B0F" stroke-width="3"/>
+            <circle cx="122" cy="62" r="21" fill="#FFFDF8" stroke="#241B0F" stroke-width="2.5"/>
+            <path d="M112 55 Q122 50 132 55" stroke="#E4D5BC" stroke-width="2" fill="none"/>
+            <path d="M55 78 Q85 70 112 80 Q95 92 62 88 Q52 86 55 78 Z" fill="#6B3E22" opacity="0.55"/>
+            <path d="M60 70 Q90 60 118 66 Q128 55 138 50" stroke="#4A2E1D" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+          </svg>
+        </div>
         <div class="rx-top"><h4>Brownie com Sorvete</h4><span class="rx-price">R$ 13,90</span></div>
         <p>Brownie amanteigado, bola de sorvete e calda quente de chocolate.</p>
         <div class="rx-sig">Recomendação médica <span>Dr. Baguete</span></div>
