@@ -201,6 +201,7 @@
     display:flex; align-items:center; justify-content:center;
   }
   .rx-photo svg{width:82%; height:82%;}
+  .rx-photo img{width:100%; height:100%; object-fit:cover; display:block;}
   .rx-card:hover{transform:translateY(-4px); box-shadow:8px 10px 0 var(--crust);}
   .rx-card::before{
     content:""; position:absolute; top:0; left:0; right:0; height:6px;
@@ -522,17 +523,7 @@
     <div class="menu-panel active" id="classicas">
       <div class="rx-card">
         <div class="rx-photo">
-          <svg viewBox="0 0 200 140" aria-hidden="true">
-            <path d="M15 78 Q15 45 65 40 Q100 36 140 45 Q172 53 170 78 Q172 100 135 105 Q95 111 55 105 Q15 100 15 78 Z" fill="#E8A33D" stroke="#241B0F" stroke-width="3"/>
-            <path d="M50 50 Q60 46 72 49" stroke="#241B0F" stroke-width="2" opacity="0.3" fill="none" stroke-linecap="round"/>
-            <path d="M100 45 Q112 42 124 46" stroke="#241B0F" stroke-width="2" opacity="0.3" fill="none" stroke-linecap="round"/>
-            <path d="M25 66 Q42 55 62 58" stroke="#3B6E4A" stroke-width="7" fill="none" stroke-linecap="round"/>
-            <path d="M128 58 Q150 62 160 74" stroke="#3B6E4A" stroke-width="7" fill="none" stroke-linecap="round"/>
-            <rect x="35" y="72" width="120" height="11" rx="5.5" fill="#F2C572" stroke="#241B0F" stroke-width="2"/>
-            <circle cx="58" cy="77" r="5.5" fill="#D93829"/>
-            <circle cx="95" cy="80" r="5.5" fill="#D93829"/>
-            <circle cx="132" cy="76" r="5.5" fill="#D93829"/>
-          </svg>
+          <img src="img/baguete-classica.jpg" alt="Baguete Clássica do Doutor" loading="lazy">
         </div>
         <div class="rx-top"><h4>Baguete Clássica do Doutor</h4><span class="rx-price">R$ 24,90</span></div>
         <p>Pão amanteigado, carne 150g, queijo prato, alface, tomate e molho da casa.</p>
