@@ -1,27 +1,22 @@
-# 🍕 Mega Pizza
+# 🥖 Dr. Baguete
 
-Site (landing page) completo para uma pizzaria fictícia chamada **Mega Pizza**: hero de destaque, diferenciais, banner de promoção, cardápio gigante (pizzas salgadas, doces e bebidas) com carrinho de compras, depoimentos de clientes e seção de contato — tudo com pedido finalizado direto pelo WhatsApp.
+Landing page completa para uma baguetteria fictícia chamada **Dr. Baguete**: hero de destaque, tira de diagnóstico (números da casa), cardápio em abas ("receituário"), cartão de fidelidade interativo (simulação de carimbos), seção "por que a gente" e CTA final — tudo com pedido finalizado direto pelo WhatsApp.
 
-É um site 100% estático (HTML + CSS + JS puro, sem frameworks nem build), então basta abrir `index.html` no navegador ou publicar em qualquer hospedagem estática (GitHub Pages, Netlify, Vercel etc).
+É um site 100% estático e de arquivo único (HTML com CSS e JS embutidos, sem frameworks nem build), então basta abrir `index.html` no navegador ou publicar em qualquer hospedagem estática (GitHub Pages, Netlify, Vercel etc).
 
 ## Estrutura
 
 ```
-index.html      → estrutura da página
-css/style.css   → todo o visual (cores, layout, responsividade, animações)
-js/script.js    → dados do cardápio, carrinho, abas, depoimentos, interações
+index.html   → página inteira: marcação, estilos e interações num único arquivo
 ```
 
 ## Como personalizar
 
-1. **Número do WhatsApp** — em `js/script.js`, troque a constante no topo do arquivo:
-   ```js
-   const WHATSAPP_NUMBER = '5500000000000'; // formato: 55 + DDD + número, só dígitos
-   ```
-2. **Endereço, telefone, horário** — edite a seção `#contato` em `index.html`.
-3. **Cardápio** — todo o cardápio (pizzas e bebidas) vem do array `MENU` em `js/script.js`. Adicione, remova ou edite itens (nome, descrição, preço, sabor/arte, tags e selo).
-4. **Fotos reais** — as pizzas e bebidas usam ilustrações 100% em CSS (nenhuma imagem externa, então nada quebra e carrega instantâneo). Se você tiver fotos reais dos produtos, é só trocar o conteúdo de `.card-top` por uma tag `<img>` apontando para o arquivo da foto — a função `artFor(item)` em `js/script.js` é o único lugar que precisa mudar.
-5. **Cores** — todas as cores principais estão centralizadas em `:root` no topo de `css/style.css` (`--red`, `--orange`, `--gold`, `--cream` etc).
+1. **Número do WhatsApp** — troque `5500000000000` em todos os links `https://wa.me/...` espalhados pelo `index.html` (botão do header, hero, CTA final, footer e botão flutuante).
+2. **Cardápio** — os itens ficam nos blocos `.rx-card` dentro de `#cardapio`, organizados em abas (`Clássicas`, `Receita Forte`, `Bebidas`, `Sobremesas`). É um cardápio de exemplo — troque nomes, descrições e preços pelos reais.
+3. **Endereço/horário/redes** — edite a seção `<footer id="contato">`.
+4. **Regras de fidelidade** — o texto e a lógica (3 compras = 15% off) estão na seção `#fidelidade`; a simulação de carimbos roda em JS no fim do arquivo.
+5. **Cores** — todas as cores principais estão centralizadas em `:root` no topo do `<style>` (`--cream`, `--tomato`, `--basil`, `--crust` etc).
 
 ## Rodando localmente
 
