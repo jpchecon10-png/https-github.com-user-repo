@@ -1022,14 +1022,12 @@
         : 'Passe o mouse pra ver o raio-x do Dr. Baguete';
     }
 
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
     let width = 0, height = 0;
 
     function resize(){
       const rect = scan.getBoundingClientRect();
-      width = canvas.width = Math.max(1, Math.round(rect.width));
-      height = canvas.height = Math.max(1, Math.round(rect.height));
+      width = Math.max(1, rect.width);
+      height = Math.max(1, rect.height);
     }
     resize();
     window.addEventListener('resize', resize);
@@ -1066,22 +1064,11 @@
       smooth.x += (target.x - smooth.x) * ease;
       smooth.y += (target.y - smooth.y) * ease;
 
-      ctx.clearRect(0, 0, width, height);
-      const gradient = ctx.createRadialGradient(smooth.x, smooth.y, 0, smooth.x, smooth.y, SPOTLIGHT_R);
-      gradient.addColorStop(0, 'rgba(255,255,255,1)');
-      gradient.addColorStop(0.4, 'rgba(255,255,255,1)');
-      gradient.addColorStop(0.6, 'rgba(255,255,255,0.75)');
-      gradient.addColorStop(0.75, 'rgba(255,255,255,0.4)');
-      gradient.addColorStop(0.88, 'rgba(255,255,255,0.12)');
-      gradient.addColorStop(1, 'rgba(255,255,255,0)');
-      ctx.fillStyle = gradient;
-      ctx.beginPath();
-      ctx.arc(smooth.x, smooth.y, SPOTLIGHT_R, 0, Math.PI * 2);
-      ctx.fill();
-
-      const url = 'url(' + canvas.toDataURL() + ')';
-      xray.style.maskImage = url;
-      xray.style.webkitMaskImage = url;
+      const mask = 'radial-gradient(circle ' + SPOTLIGHT_R + 'px at ' + smooth.x.toFixed(1) + 'px ' + smooth.y.toFixed(1) + 'px,'
+        + 'rgba(255,255,255,1) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,0.75) 60%,'
+        + 'rgba(255,255,255,0.4) 75%, rgba(255,255,255,0.12) 88%, rgba(255,255,255,0) 100%)';
+      xray.style.maskImage = mask;
+      xray.style.webkitMaskImage = mask;
 
       requestAnimationFrame(draw);
     }
