@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'Bamboly Demo';
+  src: url('https://db.onlinewebfonts.com/t/58ee300970307a1cc399e6bebd7617ce.woff2') format('woff2'),
+    url('https://db.onlinewebfonts.com/t/58ee300970307a1cc399e6bebd7617ce.woff') format('woff'),
+    url('https://db.onlinewebfonts.com/t/58ee300970307a1cc399e6bebd7617ce.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  overflow-x: hidden;
+}
+
+.font-bamboly {
+  font-family: 'Bamboly Demo', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee-scroll 18s linear infinite;
+}
