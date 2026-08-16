@@ -111,6 +111,10 @@
     max-width:1180px; margin:0 auto;
     display:grid; grid-template-columns:1.05fr 0.95fr; gap:50px; align-items:center;
   }
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; gap:48px;}
+    .hero-visual{justify-content:center;}
+  }
   .hero h1{
     font-size:clamp(2.6rem, 5.4vw, 4.4rem);
     margin:18px 0 22px;
@@ -489,7 +493,7 @@
         </div>
         <p class="scan-hint">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
-          Passe o mouse pra ver o raio-x do Dr. Baguete
+          <span id="scanHintText">Passe o mouse pra ver o raio-x do Dr. Baguete</span>
         </p>
       </div>
     </div>
@@ -1004,11 +1008,19 @@
   (function initBaguetteScan(){
     const scan = document.getElementById('baguetteScan');
     const xray = document.getElementById('baguetteXray');
+    const hintText = document.getElementById('scanHintText');
     if (!scan || !xray) return;
 
     const SPOTLIGHT_R = 115;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isCoarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
     const ease = reduceMotion ? 1 : 0.14;
+
+    if (hintText) {
+      hintText.textContent = isCoarse
+        ? 'Toque na baguete pra controlar o raio-x do Dr. Baguete'
+        : 'Passe o mouse pra ver o raio-x do Dr. Baguete';
+    }
 
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -1022,10 +1034,35 @@
     resize();
     window.addEventListener('resize', resize);
 
-    const target = { x: -9999, y: -9999 };
-    const smooth = { x: -9999, y: -9999 };
+    // Em telas sem hover (celular/tablet), o raio-x varre sozinho até o usuário tocar.
+    const startsOffscreen = !isCoarse;
+    const target = startsOffscreen ? { x: -9999, y: -9999 } : { x: 0, y: 0 };
+    const smooth = startsOffscreen ? { x: -9999, y: -9999 } : { x: 0, y: 0 };
+
+    let userActive = !isCoarse;
+    let userActiveTimer = null;
+    function markUserActive(){
+      userActive = true;
+      clearTimeout(userActiveTimer);
+      userActiveTimer = setTimeout(() => { userActive = isCoarse ? false : true; }, 1600);
+    }
+
+    let autoT = 0;
+    function autoSweep(){
+      autoT += reduceMotion ? 0 : 0.018;
+      return {
+        x: width * 0.5 + Math.sin(autoT) * width * 0.33,
+        y: height * 0.56 + Math.sin(autoT * 1.7) * height * 0.16,
+      };
+    }
 
     function draw(){
+      if (isCoarse && !userActive) {
+        const auto = autoSweep();
+        target.x = auto.x;
+        target.y = auto.y;
+      }
+
       smooth.x += (target.x - smooth.x) * ease;
       smooth.y += (target.y - smooth.y) * ease;
 
@@ -1056,8 +1093,20 @@
       target.y = e.clientY - rect.top;
     }
 
-    scan.addEventListener('pointermove', setTargetFromEvent);
-    scan.addEventListener('pointerleave', () => { target.x = -9999; target.y = -9999; });
+    scan.addEventListener('pointerdown', (e) => {
+      markUserActive();
+      setTargetFromEvent(e);
+    });
+    scan.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') markUserActive();
+      setTargetFromEvent(e);
+    });
+    scan.addEventListener('pointerup', () => {
+      if (isCoarse) markUserActive();
+    });
+    scan.addEventListener('pointerleave', () => {
+      if (!isCoarse) { target.x = -9999; target.y = -9999; }
+    });
   })();
 </script>
 
