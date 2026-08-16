@@ -140,7 +140,24 @@
     background:var(--paper); border:2px solid var(--ink); border-radius:24px;
     padding:36px 30px 30px; box-shadow:10px 10px 0 var(--ink); width:100%; max-width:420px;
   }
-  .baguette-card svg{width:100%; height:auto;}
+
+  .baguette-scan{
+    position:relative; width:100%; aspect-ratio:380/260; border-radius:14px;
+    overflow:hidden; cursor:crosshair;
+  }
+  .baguette-layer{position:absolute; inset:0;}
+  .baguette-layer svg{width:100%; height:100%; display:block;}
+  .baguette-xray{
+    pointer-events:none;
+    -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+    -webkit-mask-size:100% 100%; mask-size:100% 100%;
+  }
+  .scan-hint{
+    display:flex; align-items:center; justify-content:center; gap:8px; margin-top:14px;
+    font-family:'Space Mono',monospace; font-size:0.7rem; text-transform:uppercase;
+    letter-spacing:0.05em; color:var(--ink-soft);
+  }
+  .scan-hint svg{width:14px; height:14px; color:var(--tomato); flex-shrink:0;}
 
   /* ===== Sections shared ===== */
   section{padding:88px 24px;}
@@ -411,18 +428,68 @@
     <div class="hero-visual">
       <div class="stamp-badge">Receita<br>100% aprovada</div>
       <div class="baguette-card reveal show">
-        <svg viewBox="0 0 380 260">
-          <ellipse cx="190" cy="235" rx="150" ry="14" fill="#241B0F" opacity="0.08"/>
-          <path d="M40 150 Q40 90 130 80 Q200 72 280 90 Q345 105 340 150 Q345 195 270 205 Q190 218 110 205 Q40 195 40 150 Z" fill="#E8A33D" stroke="#241B0F" stroke-width="4"/>
-          <path d="M60 140 Q90 115 130 112" stroke="#241B0F" stroke-width="3" fill="none" opacity="0.35" stroke-linecap="round"/>
-          <path d="M150 105 Q185 98 220 103" stroke="#241B0F" stroke-width="3" fill="none" opacity="0.35" stroke-linecap="round"/>
-          <path d="M250 112 Q285 118 310 138" stroke="#241B0F" stroke-width="3" fill="none" opacity="0.35" stroke-linecap="round"/>
-          <path d="M70 165 L310 165" stroke="#3B6E4A" stroke-width="16" stroke-linecap="round"/>
-          <path d="M75 178 L305 178" stroke="#D93829" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
-          <circle cx="120" cy="150" r="5" fill="#241B0F" opacity="0.5"/>
-          <circle cx="190" cy="145" r="5" fill="#241B0F" opacity="0.5"/>
-          <circle cx="260" cy="152" r="5" fill="#241B0F" opacity="0.5"/>
-        </svg>
+        <div class="baguette-scan" id="baguetteScan">
+          <div class="baguette-layer baguette-base">
+            <svg viewBox="0 0 380 260" aria-hidden="true">
+              <ellipse cx="190" cy="235" rx="150" ry="14" fill="#241B0F" opacity="0.08"/>
+              <path d="M40 150 Q40 90 130 80 Q200 72 280 90 Q345 105 340 150 Q345 195 270 205 Q190 218 110 205 Q40 195 40 150 Z" fill="#E8A33D" stroke="#241B0F" stroke-width="4"/>
+              <path d="M60 140 Q90 115 130 112" stroke="#241B0F" stroke-width="3" fill="none" opacity="0.35" stroke-linecap="round"/>
+              <path d="M150 105 Q185 98 220 103" stroke="#241B0F" stroke-width="3" fill="none" opacity="0.35" stroke-linecap="round"/>
+              <path d="M250 112 Q285 118 310 138" stroke="#241B0F" stroke-width="3" fill="none" opacity="0.35" stroke-linecap="round"/>
+              <path d="M70 165 L310 165" stroke="#3B6E4A" stroke-width="16" stroke-linecap="round"/>
+              <path d="M75 178 L305 178" stroke="#D93829" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+              <circle cx="120" cy="150" r="5" fill="#241B0F" opacity="0.5"/>
+              <circle cx="190" cy="145" r="5" fill="#241B0F" opacity="0.5"/>
+              <circle cx="260" cy="152" r="5" fill="#241B0F" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="baguette-layer baguette-xray" id="baguetteXray">
+            <svg viewBox="0 0 380 260" aria-hidden="true">
+              <rect x="0" y="0" width="380" height="260" fill="#1B1207"/>
+              <g stroke="#E8A33D" stroke-width="1" opacity="0.18">
+                <line x1="0" y1="18" x2="380" y2="18"/>
+                <line x1="0" y1="42" x2="380" y2="42"/>
+                <line x1="0" y1="66" x2="380" y2="66"/>
+                <line x1="0" y1="90" x2="380" y2="90"/>
+                <line x1="0" y1="114" x2="380" y2="114"/>
+                <line x1="0" y1="138" x2="380" y2="138"/>
+                <line x1="0" y1="162" x2="380" y2="162"/>
+                <line x1="0" y1="186" x2="380" y2="186"/>
+                <line x1="0" y1="210" x2="380" y2="210"/>
+                <line x1="0" y1="234" x2="380" y2="234"/>
+              </g>
+              <g stroke="#E8A33D" stroke-width="2" opacity="0.6" fill="none">
+                <path d="M12 12 L12 28 M12 12 L28 12"/>
+                <path d="M368 12 L368 28 M368 12 L352 12"/>
+                <path d="M12 248 L12 232 M12 248 L28 248"/>
+                <path d="M368 248 L368 232 M368 248 L352 248"/>
+              </g>
+              <path d="M40 150 Q40 90 130 80 Q200 72 280 90 Q345 105 340 150 Q345 195 270 205 Q190 218 110 205 Q40 195 40 150 Z" fill="none" stroke="#E8A33D" stroke-width="2" stroke-dasharray="5 4" opacity="0.55"/>
+              <rect x="62" y="150" width="230" height="10" rx="4" fill="#3B6E4A" opacity="0.9"/>
+              <rect x="62" y="161" width="230" height="9" rx="4" fill="#D93829" opacity="0.9"/>
+              <rect x="62" y="171" width="230" height="11" rx="4" fill="#F2C572" opacity="0.9"/>
+              <rect x="62" y="183" width="230" height="14" rx="4" fill="#8B3A2A" opacity="0.9"/>
+              <line x1="292" y1="155" x2="302" y2="155" stroke="#3B6E4A" stroke-width="1"/>
+              <text x="306" y="158" font-family="'Space Mono',monospace" font-size="8" fill="#3B6E4A">ALFACE</text>
+              <line x1="292" y1="165" x2="302" y2="165" stroke="#D93829" stroke-width="1"/>
+              <text x="306" y="168" font-family="'Space Mono',monospace" font-size="8" fill="#D93829">MOLHO</text>
+              <line x1="292" y1="176" x2="302" y2="176" stroke="#C8811F" stroke-width="1"/>
+              <text x="306" y="179" font-family="'Space Mono',monospace" font-size="8" fill="#C8811F">QUEIJO</text>
+              <line x1="292" y1="190" x2="302" y2="190" stroke="#8B3A2A" stroke-width="1"/>
+              <text x="306" y="193" font-family="'Space Mono',monospace" font-size="8" fill="#8B3A2A">CARNE 150G</text>
+              <g transform="translate(56,34)">
+                <circle cx="0" cy="0" r="11" fill="none" stroke="#E8A33D" stroke-width="1.5"/>
+                <line x1="-15" y1="0" x2="15" y2="0" stroke="#E8A33D" stroke-width="1"/>
+                <line x1="0" y1="-15" x2="0" y2="15" stroke="#E8A33D" stroke-width="1"/>
+              </g>
+              <text x="76" y="38" font-family="'Space Mono',monospace" font-size="9" letter-spacing="1" fill="#E8A33D">DIAGNÓSTICO: APROVADO</text>
+            </svg>
+          </div>
+        </div>
+        <p class="scan-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+          Passe o mouse pra ver o raio-x do Dr. Baguete
+        </p>
       </div>
     </div>
   </div>
@@ -941,6 +1008,66 @@
       addToCart(btn.dataset.name, parseFloat(btn.dataset.price));
     });
   });
+
+  // ===== Raio-X interativo do hero (spotlight que revela o recheio ao passar o mouse) =====
+  (function initBaguetteScan(){
+    const scan = document.getElementById('baguetteScan');
+    const xray = document.getElementById('baguetteXray');
+    if (!scan || !xray) return;
+
+    const SPOTLIGHT_R = 115;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ease = reduceMotion ? 1 : 0.14;
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    let width = 0, height = 0;
+
+    function resize(){
+      const rect = scan.getBoundingClientRect();
+      width = canvas.width = Math.max(1, Math.round(rect.width));
+      height = canvas.height = Math.max(1, Math.round(rect.height));
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const target = { x: -9999, y: -9999 };
+    const smooth = { x: -9999, y: -9999 };
+
+    function draw(){
+      smooth.x += (target.x - smooth.x) * ease;
+      smooth.y += (target.y - smooth.y) * ease;
+
+      ctx.clearRect(0, 0, width, height);
+      const gradient = ctx.createRadialGradient(smooth.x, smooth.y, 0, smooth.x, smooth.y, SPOTLIGHT_R);
+      gradient.addColorStop(0, 'rgba(255,255,255,1)');
+      gradient.addColorStop(0.4, 'rgba(255,255,255,1)');
+      gradient.addColorStop(0.6, 'rgba(255,255,255,0.75)');
+      gradient.addColorStop(0.75, 'rgba(255,255,255,0.4)');
+      gradient.addColorStop(0.88, 'rgba(255,255,255,0.12)');
+      gradient.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(smooth.x, smooth.y, SPOTLIGHT_R, 0, Math.PI * 2);
+      ctx.fill();
+
+      const url = 'url(' + canvas.toDataURL() + ')';
+      xray.style.maskImage = url;
+      xray.style.webkitMaskImage = url;
+
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+
+    function setTargetFromEvent(e){
+      const rect = scan.getBoundingClientRect();
+      target.x = e.clientX - rect.left;
+      target.y = e.clientY - rect.top;
+    }
+
+    scan.addEventListener('pointermove', setTargetFromEvent);
+    scan.addEventListener('pointerleave', () => { target.x = -9999; target.y = -9999; });
+  })();
 </script>
 
 </body>
