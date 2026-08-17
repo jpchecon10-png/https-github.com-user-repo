@@ -173,7 +173,6 @@
     50%{box-shadow:inset 0 -14px 24px rgba(0,0,0,0.35), 0 20px 46px rgba(255,93,143,0.5);}
   }
   .bowl-card .rating{display:flex; align-items:center; justify-content:center; gap:6px; font-weight:800; color:var(--acai-dark); margin-bottom:4px;}
-  .bowl-card .rating .stars{color:var(--gold); letter-spacing:2px;}
   .bowl-card .sub{color:var(--ink-soft); font-size:0.9rem;}
   .floaty-wrap{position:absolute; will-change:transform;}
   .floaty-wrap.f1{top:-10px; left:-18px;}
@@ -185,10 +184,10 @@
   /* ===== Stats strip ===== */
   .stats-strip{padding:0;}
   .stats-grid{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border-radius:var(--radius);
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border-radius:var(--radius);
     overflow:hidden; box-shadow:0 20px 46px rgba(61,17,82,0.16); transform:translateY(-40px); position:relative; z-index:3;
   }
-  @media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr); transform:translateY(-26px);}}
+  @media(max-width:640px){.stats-grid{grid-template-columns:1fr; transform:translateY(-26px);}}
   .stat-card{background:var(--paper); padding:26px 16px; text-align:center;}
   .stat-num{font-family:'Baloo 2',sans-serif; font-weight:800; font-size:2rem; color:var(--acai-dark);}
   .stat-label{color:var(--ink-soft); font-size:0.82rem; margin-top:4px; font-weight:700;}
@@ -295,17 +294,12 @@
     max-width:560px; margin:0 auto; background:var(--cream); border:1px solid var(--line); border-radius:var(--radius);
     padding:36px 28px;
   }
-  .rating-card .big-stars{font-size:2rem; color:var(--gold); letter-spacing:6px; margin:10px 0;}
-  .big-stars span{display:inline-block; opacity:0; transform:scale(.4) rotate(-15deg);}
-  .rating-card.in-view .big-stars span{animation:starPop .5s cubic-bezier(.34,1.56,.64,1) forwards;}
-  .rating-card.in-view .big-stars span:nth-child(1){animation-delay:.05s;}
-  .rating-card.in-view .big-stars span:nth-child(2){animation-delay:.15s;}
-  .rating-card.in-view .big-stars span:nth-child(3){animation-delay:.25s;}
-  .rating-card.in-view .big-stars span:nth-child(4){animation-delay:.35s;}
-  .rating-card.in-view .big-stars span:nth-child(5){animation-delay:.45s;}
-  @keyframes starPop{to{opacity:1; transform:scale(1) rotate(0);}}
-  .big-stars span.dim{color:#E7D6B8;}
-  .rating-card .score{font-family:'Baloo 2',sans-serif; font-weight:800; font-size:2.6rem; color:var(--acai-dark);}
+  .rating-card .score{
+    font-family:'Baloo 2',sans-serif; font-weight:800; font-size:1.7rem; color:var(--acai-dark); text-wrap:balance;
+    opacity:0; transform:scale(.85); margin:10px 0;
+  }
+  .rating-card.in-view .score{animation:scorePop .5s cubic-bezier(.34,1.56,.64,1) .1s forwards;}
+  @keyframes scorePop{to{opacity:1; transform:scale(1);}}
   .rating-card p{color:var(--ink-soft); margin:10px 0 22px;}
 
   /* ===== Footer / Contato ===== */
@@ -439,9 +433,9 @@
         <a class="btn btn-outline" href="#cardapio">Ver cardápio</a>
       </div>
       <div class="hero-stats hero-anim" style="--d:.44s;">
-        <div class="hero-stat"><span class="ico">⭐</span> 3,7 no Google</div>
+        <div class="hero-stat"><span class="ico">🍨</span> +25 sabores</div>
         <div class="hero-stat"><span class="ico">🛵</span> Entrega em ~18 min</div>
-        <div class="hero-stat"><span class="ico">📍</span> Campos do Iguaçu</div>
+        <div class="hero-stat"><span class="ico">📍</span> Foz do Iguaçu - PR</div>
       </div>
     </div>
     <div class="hero-visual hero-anim" style="--d:.3s;">
@@ -450,8 +444,8 @@
       <span class="floaty-wrap f3" style="--depth:28;"><span class="floaty-inner" style="animation-delay:-2.1s;">🥥</span></span>
       <div class="bowl-card" id="bowlCard">
         <div class="bowl">🫐</div>
-        <div class="rating"><span class="stars">★★★★☆</span> 3,7</div>
-        <div class="sub">Avaliações no Google Maps</div>
+        <div class="rating"><span class="ico">📍</span> Foz do Iguaçu, PR</div>
+        <div class="sub">Buffet self-service &amp; delivery</div>
       </div>
     </div>
   </div>
@@ -467,10 +461,6 @@
       <div class="stat-card">
         <div class="stat-num"><span class="count" data-target="18">0</span> min</div>
         <div class="stat-label">Entrega estimada</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num"><span class="count-decimal" data-target="3.7">0,0</span></div>
-        <div class="stat-label">Nota no Google ⭐</div>
       </div>
       <div class="stat-card">
         <div class="stat-num"><span class="count" data-target="6">0</span>/7</div>
@@ -730,10 +720,7 @@
   <div class="wrap">
     <div class="rating-card">
       <div class="eyebrow" style="justify-content:center;">Google Avaliações</div>
-      <div class="score">3,7</div>
-      <div class="big-stars" aria-label="3,7 de 5 estrelas">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span class="dim">★</span>
-      </div>
+      <div class="score">Sua opinião importa 🫐</div>
       <p>Já provou nosso açaí? Conta pra gente como foi a experiência — sua avaliação ajuda muito!</p>
       <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Fronteira+do+A%C3%A7a%C3%AD+Foz+do+Igua%C3%A7u" target="_blank" rel="noopener">⭐ Avaliar no Google</a>
     </div>
@@ -981,17 +968,16 @@
   }
 
   // Stat counters
-  function animateCount(el, target, decimal){
-    if(reduceMotion){ el.textContent = decimal ? target.toFixed(1).replace('.', ',') : target; return; }
+  function animateCount(el, target){
+    if(reduceMotion){ el.textContent = target; return; }
     const duration = 1400;
     const start = performance.now();
     function step(now){
       const p = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - p, 3);
-      const val = target * eased;
-      el.textContent = decimal ? val.toFixed(1).replace('.', ',') : Math.round(val);
+      el.textContent = Math.round(target * eased);
       if(p < 1) requestAnimationFrame(step);
-      else el.textContent = decimal ? target.toFixed(1).replace('.', ',') : target;
+      else el.textContent = target;
     }
     requestAnimationFrame(step);
   }
@@ -1000,8 +986,7 @@
     const statsObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
-          entry.target.querySelectorAll('.count').forEach(el => animateCount(el, parseFloat(el.dataset.target), false));
-          entry.target.querySelectorAll('.count-decimal').forEach(el => animateCount(el, parseFloat(el.dataset.target), true));
+          entry.target.querySelectorAll('.count').forEach(el => animateCount(el, parseFloat(el.dataset.target)));
           statsObserver.unobserve(entry.target);
         }
       });
