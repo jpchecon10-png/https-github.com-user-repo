@@ -1,6 +1,6 @@
 # 🫐 Fronteira do Açaí
 
-Landing page completa para a **Fronteira do Açaí**, sorveteria/açaiteria com buffet self-service e delivery em Foz do Iguaçu (PR): hero de destaque, seção "como funciona o buffet", cardápio em abas (açaí/copos, sorvetes, coberturas, bebidas) com carrinho persistente, diferenciais, chamada para avaliação no Google e contato com mapa — tudo com pedido finalizado direto pelo WhatsApp.
+Landing page completa para a **Fronteira do Açaí**, sorveteria/açaiteria com buffet self-service e delivery em Foz do Iguaçu (PR): hero animado com spotlight que segue o cursor e frutinhas com parallax, tira de estatísticas com contadores, marquee infinito de sabores, seção "como funciona o buffet" com linha conectora animada, cardápio em abas (açaí/copos, sorvetes, coberturas, bebidas) com carrinho persistente e efeitos de "voar pro carrinho", diferenciais, chamada para avaliação no Google com estrelas animadas e contato com mapa — tudo com pedido finalizado direto pelo WhatsApp.
 
 É um site 100% estático e de arquivo único (HTML com CSS e JS embutidos, sem frameworks nem build), então basta abrir `index.html` no navegador ou publicar em qualquer hospedagem estática (GitHub Pages, Netlify, Vercel etc).
 
@@ -17,6 +17,7 @@ index.html   → página inteira: marcação, estilos e interações num único 
 3. **Endereço/horário/redes** — edite a seção `<footer id="contato">`, incluindo o link do Instagram e o embed do Google Maps (o `src` do `iframe` usa o endereço em texto, sem precisar de chave de API).
 4. **Horário de funcionamento** — hoje está como "Segunda-feira — Fechado" e "Terça a domingo — 14:00 às 22:00" com base na informação parcial disponível ("Fechado · Abre ter. às 14:00"); ajuste para o horário real completo da loja.
 5. **Cores** — todas as cores principais estão centralizadas em `:root` no topo do `<style>` (`--acai`, `--pink`, `--gold`, `--cream` etc).
+6. **Animações** — reveal-on-scroll, contadores, parallax do cursor no hero e o efeito de "voar pro carrinho" respeitam `prefers-reduced-motion` (usuários que preferem menos movimento veem o site sem elas). Os keyframes ficam nomeados no `<style>` (`heroIn`, `driftA/driftB`, `bob`, `itemPop`, `marqueeScroll`, `starPop`, `pulseRing` etc.) caso queira ajustar velocidade ou remover algum efeito.
 
 ## Rodando localmente
 
