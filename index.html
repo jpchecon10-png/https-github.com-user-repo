@@ -74,11 +74,11 @@
   }
   .intro-bowl{
     position:relative; width:180px; height:180px; border-radius:50%; margin-bottom:10px;
-    background:radial-gradient(circle at 40% 35%, #6C1F86, var(--acai-light) 55%, var(--acai-dark) 100%);
-    display:flex; align-items:center; justify-content:center; font-size:4.2rem;
+    overflow:hidden; background:var(--acai-dark);
     box-shadow:0 20px 30px rgba(0,0,0,.4), inset 0 -14px 22px rgba(0,0,0,.35);
     opacity:0; animation:introBowlFall 1.35s cubic-bezier(.3,.1,.3,1) forwards;
   }
+  .intro-bowl img{width:100%; height:100%; object-fit:cover; display:block;}
   @keyframes introBowlFall{
     0%{transform:translateY(-72vh) rotate(-22deg) scale(.8); opacity:0;}
     8%{opacity:1;}
@@ -221,11 +221,11 @@
     box-shadow:0 30px 60px rgba(61,17,82,0.22); text-align:center; will-change:transform;
   }
   .bowl{
-    width:220px; height:220px; margin:0 auto 14px; border-radius:50%;
-    background:radial-gradient(circle at 40% 35%, #6C1F86, var(--acai) 65%, var(--acai-dark) 100%);
-    display:flex; align-items:center; justify-content:center; font-size:4.2rem;
+    width:220px; height:220px; margin:0 auto 14px; border-radius:50%; overflow:hidden;
+    background:var(--acai-dark);
     animation:pulseGlow 3.4s ease-in-out infinite;
   }
+  .bowl img{width:100%; height:100%; object-fit:cover; display:block;}
   @keyframes pulseGlow{
     0%,100%{box-shadow:inset 0 -14px 24px rgba(0,0,0,0.35), 0 12px 30px rgba(61,17,82,0.3);}
     50%{box-shadow:inset 0 -14px 24px rgba(0,0,0,0.35), 0 20px 46px rgba(255,93,143,0.5);}
@@ -461,7 +461,7 @@
   <div class="intro-sky" aria-hidden="true"></div>
   <div class="intro-stage" aria-hidden="true">
     <div class="intro-shadow"></div>
-    <div class="intro-bowl">🫐</div>
+    <div class="intro-bowl"><img src="images/acai-morango.jpg" alt="" loading="eager"></div>
   </div>
   <div class="intro-brand" aria-hidden="true">Fronteira do Açaí</div>
   <button class="intro-skip" id="introSkip" type="button">Pular ⏭</button>
@@ -512,7 +512,7 @@
       <span class="floaty-wrap f2" style="--depth:16;"><span class="floaty-inner" style="animation-delay:-1.2s;">🍌</span></span>
       <span class="floaty-wrap f3" style="--depth:28;"><span class="floaty-inner" style="animation-delay:-2.1s;">🥥</span></span>
       <div class="bowl-card" id="bowlCard">
-        <div class="bowl">🫐</div>
+        <div class="bowl"><img src="images/acai-morango.jpg" alt="Copo de açaí com morango, granola e leite condensado da Fronteira do Açaí"></div>
         <div class="rating"><span class="ico">📍</span> Foz do Iguaçu, PR</div>
         <div class="sub">Buffet self-service &amp; delivery</div>
       </div>
